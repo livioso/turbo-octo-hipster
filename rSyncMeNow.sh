@@ -2,7 +2,7 @@
 
 # if [ ! -d /Volumes/e_18_data11$ ]; then
 	# that fucker has not been mounted yet!
-	# assuming we have a working connection 
+	# assuming we have a working connection
 	# (we are on site or via VPN) we're going to do it ourselves now.
 	#  mkdir /Volumes/e_18_data11$
 	#  mount_smbfs smb://fsemu18.edu.ds.fhnw.ch/e_18_data11$ /Volumes/e_18_data11$
@@ -10,6 +10,18 @@
 
 # here we go... we have access now thus we're
 # ready to sync all that crap = mirroring
+
+# SAMPLE WITH VARIABLES
+
+# SOURCE_PATH="/Volumes/e_18_data11$/"
+# USER_PATH="/Users/studentname/Desktop/Test/"
+# MIRROR_PATH="/__remotemirror"
+
+# # how to build a path:
+# # SOURCE_PATH/<directory of class>/<directory of subject>/* /USER_PATH/<subject>/MIRROR_PATH
+
+# # mgli
+# rsync -avrz --delete --progress ${SOURCE_PATH}E1862_Unterrichte_I/E1862_1iCbb/mgli/* ${USER_PATH}mgli${MIRROR_PATH}
 
 # mgli
 rsync -avrz --delete --progress /Volumes/e_18_data11$/E1862_Unterrichte_I/E1862_1iCbb/mgli/* /Users/livio/Dropbox/FHNW/mgli/__remotemirror
