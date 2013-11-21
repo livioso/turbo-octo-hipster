@@ -11,7 +11,7 @@ end
 
 settings = {
     "SOURCE_PATH" => "/Volumes/e_18_data11$/",
-    "USER_PATH" => "/Users/mariuskueng/Desktop/Test",
+    "USER_PATH" => "~/Desktop/Test",
     "MIRROR_PATH" => "__remotemirror"
 }
 subjects = [
