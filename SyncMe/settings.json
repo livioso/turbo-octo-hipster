@@ -1,7 +1,5 @@
-}
-"settings": [
-	{ "SOURCE_PATH": "/Volumes/e_18_data11$/"},
-	{ "USER_PATH": "~/Desktop/FHNW"},
-	{ "MIRROR_PATH":"lag" , "directory":"__remotemirror" }
-]
+{
+	"SOURCE_PATH": "/Volumes/e_18_data11$/",
+	"USER_PATH":"~/Desktop/FHNW",
+	"MIRROR_PATH":"__remotemirror"
 }
