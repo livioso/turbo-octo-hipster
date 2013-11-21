@@ -28,8 +28,8 @@ for i in subjects do
 
     # if target directory doesn't exitst
     if !File.directory?(current_user_path) then
-        system("mkdir %s/%s" % [settings["USER_PATH"], i['name']])
-        system("mkdir %s/%s/%s" % [settings["USER_PATH"], i['name'], settings["MIRROR_PATH"]])
+        system("mkdir -p %s/%s" % [settings["USER_PATH"], i['name']])
+        system("mkdir -p %s/%s/%s" % [settings["USER_PATH"], i['name'], settings["MIRROR_PATH"]])
     end
 
     # how to build a path:
