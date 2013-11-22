@@ -1,5 +1,5 @@
 # @author Marius Küng
-# @version 0.1 (2013-11-22)
+# @version 0.2 (2013-11-22)
 
 # Resources
 # http://www.weichel21.de/wordpress/2013/03/31/open-a-vpn-verbindung-on-mac-using-ruby/
@@ -9,7 +9,9 @@ require 'json'
 
 class VPNMeNow
 
-    settingsFilePath = ARGV[0]
+    action = ARGV[0]
+    action ||= ''
+    settingsFilePath = ARGV[1]
     settingsFilePath ||= 'settings.json'
 
     if !File.exists?(settingsFilePath) then
@@ -59,6 +61,10 @@ class VPNMeNow
 
         system(cmd)
     end
+
+    if action == "open"
+        self.open()
+    elsif action == "close"
+        self.close()
+    end
 end
-VPNMeNow::open()
-# VPNMeNow::close()
