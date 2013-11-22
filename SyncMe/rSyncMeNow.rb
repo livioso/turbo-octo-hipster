@@ -12,8 +12,26 @@ if !File.directory?("/Volumes/e_18_data11$") then
     exit
 end
 
-settings = JSON.parse(File.read('settings.json'))
-subjects = JSON.parse(File.read('subjects.json'))
+# either use the files given as 
+# parameter or use the default ones
+# if none are set as parameters
+subjectsFilePath = ARGV[0]
+settingsFilePath = ARGV[1]
+subjectsFilePath ||= 'subjects.json'
+settingsFilePath ||= 'settings.json'
+
+if !File.exists?(subjectsFilePath) then
+    puts subjectsFilePath + " does not exist."
+    exit
+end
+
+if !File.exists?(settingsFilePath) then
+    puts settingsFilePath + " does not exist."
+    exit
+end
+
+subjects = JSON.parse(File.read(subjectsFilePath))
+settings = JSON.parse(File.read(settingsFilePath))
 
 subjects["subjects"].each do |subject|
 
