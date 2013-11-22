@@ -6,14 +6,9 @@
 # http://forums.macrumors.com/showthread.php?t=689066
 
 require 'json'
-load 'rCheckWifi.rb'
 
 class VPNMeNow
 
-    if getFHNWWifi
-        puts "You're already connected to the FHNW Wifi. Just load up the AD."
-        exit
-    end
     settingsFilePath = ARGV[0]
     settingsFilePath ||= 'settings.json'
 
