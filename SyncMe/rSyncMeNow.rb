@@ -8,7 +8,7 @@ require 'json'
 
 # Check if Active Directory is around
 if !File.directory?("/Volumes/e_18_data11$") then
-    puts "Keine Verbindung zu Active Directory!"
+    puts "No connection found to active directory. Hell no!"
     exit
 end
 
