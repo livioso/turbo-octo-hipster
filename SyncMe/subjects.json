@@ -3,5 +3,12 @@
 	{ "name":"mgli" , "directory":"E1862_Unterrichte_I/E1862_1iCbb" },
 	{ "name":"oopI1" , "directory":"E1862_Unterrichte_I/E1862_1iCa" },
 	{ "name":"lag" , "directory":"E1862_Unterrichte_I/E1862_1Ia" }
+	{ "name":"fprog" , "directory":"E1862_Unterrichte_I/E1862_1Ia" }
+	{ "name":"ebec1" , "directory":"E1868_Unterrichte_Kontext/E1868_7KEc" }
+	{ "name":"agrh" , "directory":"E1868_Unterrichte_Kontext/E1868_7KKa08" }
+	{ "name":"dtpC" , "directory":"E1862_Unterrichte_I/E1862_1iCa" }
+	{ "name":"infge" , "directory":"E1868_Unterrichte_Kontext/E1868_7KGb" }
+	{ "name":"ws1C" , "directory":"E1862_Unterrichte_I/E1862_1iCa" }
+	{ "name":"sweGL" , "directory":"E1862_Unterrichte_I/E1862_1iCa" }
 ]
 }
