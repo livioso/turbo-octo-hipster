@@ -35,15 +35,13 @@ settings = JSON.parse(File.read(settingsFilePath))
 
 subjects["subjects"].each do |subject|
 
-    puts subject["name"]
+    subjectMirrorFolder = "%s/%s/%s/" % [settings["USER_PATH"], subject['name'], settings["MIRROR_PATH"]]
 
-    current_user_path = "%s/%s/%s/" % [settings["USER_PATH"], subject['name'], settings["MIRROR_PATH"]]
+    puts " => %s [%s]" % [subject["name"], subjectMirrorFolder]
 
     # if target directory doesn't exitst
-    if !File.directory?(current_user_path) then
-        system("mkdir -p %s/%s" % [settings["USER_PATH"], subject['name']])
-        system("mkdir -p %s/%s/%s" % [settings["USER_PATH"], subject['name'], settings["MIRROR_PATH"]])
     if !File.directory?(File.expand_path(subjectMirrorFolder)) then
+        system("mkdir -p %s" % subjectMirrorFolder)
     end
 
     # how to build a path:
