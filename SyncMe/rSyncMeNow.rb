@@ -43,6 +43,7 @@ subjects["subjects"].each do |subject|
     if !File.directory?(current_user_path) then
         system("mkdir -p %s/%s" % [settings["USER_PATH"], subject['name']])
         system("mkdir -p %s/%s/%s" % [settings["USER_PATH"], subject['name'], settings["MIRROR_PATH"]])
+    if !File.directory?(File.expand_path(subjectMirrorFolder)) then
     end
 
     # how to build a path:
