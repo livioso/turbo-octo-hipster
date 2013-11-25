@@ -17,8 +17,8 @@ end
 # if none are set as parameters
 subjectsFilePath = ARGV[0]
 settingsFilePath = ARGV[1]
-subjectsFilePath ||= 'subjects.json'
-settingsFilePath ||= 'settings.json'
+subjectsFilePath ||= File.join(File.dirname(__FILE__),'subjects.json')
+settingsFilePath ||= File.join(File.dirname(__FILE__),'settings.json')
 
 if !File.exists?(subjectsFilePath) then
     puts subjectsFilePath + " does not exist."

@@ -12,7 +12,7 @@ class VPNMeNow
     action = ARGV[0]
     action ||= ''
     settingsFilePath = ARGV[1]
-    settingsFilePath ||= 'settings.json'
+    settingsFilePath ||= File.join(File.dirname(__FILE__),'settings.json')
 
     if !File.exists?(settingsFilePath) then
         puts settingsFilePath + " does not exist."
