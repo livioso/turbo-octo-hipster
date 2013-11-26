@@ -6,12 +6,6 @@
 # we are the cool kids so we need json here
 require 'json'
 
-# Check if Active Directory is around
-if !File.directory?("/Volumes/e_18_data11$") then
-    puts "No connection found to active directory. Hell no!"
-    exit
-end
-
 # either use the files given as 
 # parameter or use the default ones
 # if none are set as parameters
@@ -32,6 +26,12 @@ end
 
 subjects = JSON.parse(File.read(subjectsFilePath))
 settings = JSON.parse(File.read(settingsFilePath))
+
+# Check if Active Directory is around
+if !File.directory?(settings["SOURCE_PATH"]) then
+    puts "No connection found to active directory. Hell no!"
+    exit
+end
 
 subjects["subjects"].each do |subject|
 
