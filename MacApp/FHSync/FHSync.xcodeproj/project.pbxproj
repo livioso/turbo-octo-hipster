@@ -20,6 +20,8 @@
 		B602B70A1845148500952975 /* FHSyncTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B602B7091845148500952975 /* FHSyncTests.m */; };
 		B602B728184536E700952975 /* ConnectMe in Resources */ = {isa = PBXBuildFile; fileRef = B602B726184536E700952975 /* ConnectMe */; };
 		B602B729184536E700952975 /* SyncMe in Resources */ = {isa = PBXBuildFile; fileRef = B602B727184536E700952975 /* SyncMe */; };
+		B64932AF1847C292008B5325 /* FH_Icon1.png in Resources */ = {isa = PBXBuildFile; fileRef = B64932AD1847C292008B5325 /* FH_Icon1.png */; };
+		B64932B01847C292008B5325 /* FH_Icon2.png in Resources */ = {isa = PBXBuildFile; fileRef = B64932AE1847C292008B5325 /* FH_Icon2.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,8 @@
 		B602B7091845148500952975 /* FHSyncTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FHSyncTests.m; sourceTree = "<group>"; };
 		B602B726184536E700952975 /* ConnectMe */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ConnectMe; path = ../../ConnectMe; sourceTree = "<group>"; };
 		B602B727184536E700952975 /* SyncMe */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SyncMe; path = ../../SyncMe; sourceTree = "<group>"; };
+		B64932AD1847C292008B5325 /* FH_Icon1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FH_Icon1.png; sourceTree = "<group>"; };
+		B64932AE1847C292008B5325 /* FH_Icon2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FH_Icon2.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +125,8 @@
 		B602B6E51845148400952975 /* FHSync */ = {
 			isa = PBXGroup;
 			children = (
+				B64932AD1847C292008B5325 /* FH_Icon1.png */,
+				B64932AE1847C292008B5325 /* FH_Icon2.png */,
 				B602B6F11845148400952975 /* FHSyncAppDelegate.h */,
 				B602B6F21845148400952975 /* FHSyncAppDelegate.m */,
 				B602B6F41845148500952975 /* MainMenu.xib */,
@@ -240,9 +246,11 @@
 				B602B6EA1845148400952975 /* InfoPlist.strings in Resources */,
 				B602B728184536E700952975 /* ConnectMe in Resources */,
 				B602B6F81845148500952975 /* Images.xcassets in Resources */,
+				B64932AF1847C292008B5325 /* FH_Icon1.png in Resources */,
 				B602B729184536E700952975 /* SyncMe in Resources */,
 				B602B6F01845148400952975 /* Credits.rtf in Resources */,
 				B602B6F61845148500952975 /* MainMenu.xib in Resources */,
+				B64932B01847C292008B5325 /* FH_Icon2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

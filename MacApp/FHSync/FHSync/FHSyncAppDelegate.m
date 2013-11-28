@@ -13,10 +13,22 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     // Insert code here to initialize your application
+    
     statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
+    
+    [statusItem setImage:statusImage];
+    [statusItem setAlternateImage:statusHighlightImage];
     [statusItem setMenu:statusMenu];
-    [statusItem setTitle:@"FHSync"];
+//    [statusItem setTitle:@"FHSync"];
     [statusItem setHighlightMode:YES];
+    
+    NSBundle *bundle = [NSBundle mainBundle];
+    
+    statusImage = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"FH_Icon1" ofType:@"png"]];
+    statusHighlightImage = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"FH_Icon2" ofType:@"png"]];
+    
+    [statusItem setImage:statusImage];
+    [statusItem setAlternateImage:statusHighlightImage];
 }
 
 

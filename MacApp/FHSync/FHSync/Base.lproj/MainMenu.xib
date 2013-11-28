@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
+        <deployment defaultVersion="1060" identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4514"/>
     </dependencies>
     <objects>
@@ -380,6 +381,10 @@
                     <connections>
                         <action selector="syncAD:" target="494" id="tDU-vm-Ng7"/>
                     </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="pbh-gn-dd8"/>
+                <menuItem title="Einstellungen ..." id="JM4-X0-vEz">
+                    <modifierMask key="keyEquivalentModifierMask"/>
                 </menuItem>
                 <menuItem title="Beenden" id="tZ6-Av-1p9">
                     <modifierMask key="keyEquivalentModifierMask"/>
