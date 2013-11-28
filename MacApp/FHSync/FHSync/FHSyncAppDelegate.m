@@ -28,13 +28,23 @@ void runSystemCommand(NSString *cmd)
 }
 
 - (IBAction)connectVPN:(id)sender{
-    runSystemCommand(@"ruby ~/projects/turbo-octo-hipster/ConnectMe/rVPNMeNow.rb open");
+//    runSystemCommand(@"ruby ~/projects/turbo-octo-hipster/ConnectMe/rVPNMeNow.rb open");
+    NSBundle *mainBundle = [NSBundle mainBundle];
+    NSString *myFile = [mainBundle pathForResource: @"ConnectMe/rVPNMeNow" ofType: @"rb"];
+    NSString *cmd = [NSString stringWithFormat: @"ruby %@ open", myFile];
+    runSystemCommand(cmd);
 }
 - (IBAction)connectAD:(id)sender{
-    runSystemCommand(@"ruby ~/projects/turbo-octo-hipster/ConnectMe/rADMeNow.rb");
+    NSBundle *mainBundle = [NSBundle mainBundle];
+    NSString *myFile = [mainBundle pathForResource: @"ConnectMe/rADMeNow" ofType: @"rb"];
+    NSString *cmd = [NSString stringWithFormat: @"ruby %@", myFile];
+    runSystemCommand(cmd);
 }
 - (IBAction)syncAD:(id)sender{
-    runSystemCommand(@"ruby ~/projects/turbo-octo-hipster/SyncMe/rSyncMeNow.rb");
+    NSBundle *mainBundle = [NSBundle mainBundle];
+    NSString *myFile = [mainBundle pathForResource: @"SyncMe/rSyncMeNow" ofType: @"rb"];
+    NSString *cmd = [NSString stringWithFormat: @"ruby %@", myFile];
+    runSystemCommand(cmd);
 }
 
 @end

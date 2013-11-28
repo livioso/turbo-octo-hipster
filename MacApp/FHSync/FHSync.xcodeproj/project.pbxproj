@@ -52,8 +52,8 @@
 		B602B7051845148500952975 /* FHSyncTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FHSyncTests-Info.plist"; sourceTree = "<group>"; };
 		B602B7071845148500952975 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B602B7091845148500952975 /* FHSyncTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FHSyncTests.m; sourceTree = "<group>"; };
-		B602B726184536E700952975 /* ConnectMe */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ConnectMe; path = ../../../ConnectMe; sourceTree = "<group>"; };
-		B602B727184536E700952975 /* SyncMe */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SyncMe; path = ../../../SyncMe; sourceTree = "<group>"; };
+		B602B726184536E700952975 /* ConnectMe */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ConnectMe; path = ../../ConnectMe; sourceTree = "<group>"; };
+		B602B727184536E700952975 /* SyncMe */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SyncMe; path = ../../SyncMe; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +99,8 @@
 		B602B6DE1845148400952975 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B602B727184536E700952975 /* SyncMe */,
+				B602B726184536E700952975 /* ConnectMe */,
 				B602B6DF1845148400952975 /* Cocoa.framework */,
 				B602B6FE1845148500952975 /* XCTest.framework */,
 				B602B6E11845148400952975 /* Other Frameworks */,
@@ -121,8 +123,6 @@
 			children = (
 				B602B6F11845148400952975 /* FHSyncAppDelegate.h */,
 				B602B6F21845148400952975 /* FHSyncAppDelegate.m */,
-				B602B726184536E700952975 /* ConnectMe */,
-				B602B727184536E700952975 /* SyncMe */,
 				B602B6F41845148500952975 /* MainMenu.xib */,
 				B602B6F71845148500952975 /* Images.xcassets */,
 				B602B6E61845148400952975 /* Supporting Files */,
