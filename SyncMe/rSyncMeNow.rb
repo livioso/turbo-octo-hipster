@@ -14,12 +14,12 @@ settingsFilePath = ARGV[1]
 subjectsFilePath ||= File.join(File.dirname(__FILE__),'subjects.json')
 settingsFilePath ||= File.join(File.dirname(__FILE__),'settings.json')
 
-if !File.exists?(subjectsFilePath) then
+if not File.exists?(subjectsFilePath) then
     puts subjectsFilePath + " does not exist."
     exit
 end
 
-if !File.exists?(settingsFilePath) then
+if not File.exists?(settingsFilePath) then
     puts settingsFilePath + " does not exist."
     exit
 end
@@ -28,7 +28,7 @@ subjects = JSON.parse(File.read(subjectsFilePath))
 settings = JSON.parse(File.read(settingsFilePath))
 
 # Check if Active Directory is around
-if !File.directory?(settings["SOURCE_PATH"]) then
+if not File.directory?(settings["SOURCE_PATH"]) then
     puts "No connection found to active directory. Hell no!"
     exit
 end
