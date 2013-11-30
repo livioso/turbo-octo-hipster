@@ -46,7 +46,7 @@ subjects["subjects"].each do |subject|
 
     # how to build a path:
     # SOURCE_PATH/<directory of class>/<directory of subject>/* /USER_PATH/<subject>/MIRROR_PATH
-    rsync = "rsync -avrz --delete --progress %s/%s/%s/* %s/%s/%s/" %
+    rsync = "rsync -avrz --progress %s/%s/%s/* %s/%s/%s/" %
     [
         settings["SOURCE_PATH"],
         subject['directory'],
