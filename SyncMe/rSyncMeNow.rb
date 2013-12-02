@@ -1,3 +1,5 @@
+#! /usr/bin/ruby
+
 # Get your study documents automatically from active directory
 #
 # @author Marius Küng
@@ -18,15 +20,22 @@ options = {
 OptionParser.new do |opts|
     opts.banner = "Usage: rSyncMeNow.rb [options]"
     opts.on("-s", "--subjects", "Subjects json file") do |s|
-        options[:subjectsFilePath] = s)
+        options[:subjectsFilePath] = s
     end
     opts.on("-c", "--settings", "Settings json file") do |c|
-        options[:subjectsFilePath] = c)
+        options[:subjectsFilePath] = c
     end
 end.parse!
 
-subjects = JSON.parse(File.read(options[:subjectsFilePath]))
-settings = JSON.parse(File.read(options[:settingsFilePath]))
+begin 
+    subjects = JSON.parse(File.read(options[:subjectsFilePath]))
+    settings = JSON.parse(File.read(options[:settingsFilePath]))
+rescue
+    puts " => Ooops. Error while parsing files. :-/ \n" +
+         "    Verify your subjects and settings file. \n" +
+         "    Make sure they are existing and valid. Aborting."
+    exit
+end
 
 # Check if Active Directory is around
 if not File.directory?(settings["SOURCE_PATH"]) then
@@ -58,5 +67,5 @@ subjects["subjects"].each do |subject|
         settings["MIRROR_PATH"]
     ]
     system( rsync ) # run a shell command: system ("<command>")
-end
 
+end
