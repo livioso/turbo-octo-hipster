@@ -5,27 +5,28 @@
 
 # we are the cool kids so we need json here
 require 'json'
+require 'optparse'
 
-# either use the files given as 
-# parameter or use the default ones
-# if none are set as parameters
-subjectsFilePath = ARGV[0]
-settingsFilePath = ARGV[1]
-subjectsFilePath ||= File.join(File.dirname(__FILE__),'subjects.json')
-settingsFilePath ||= File.join(File.dirname(__FILE__),'settings.json')
 
-if not File.exists?(subjectsFilePath) then
-    puts subjectsFilePath + " does not exist."
-    exit
-end
+options = {
+    # defaulting to subjects.json and settings.json assuming 
+    # they are located under the same path as the script itself
+    :subjectsFilePath => File.join(File.dirname(__FILE__),'subjects.json'),
+    :settingsFilePath => File.join(File.dirname(__FILE__),'settings.json')
+}
 
-if not File.exists?(settingsFilePath) then
-    puts settingsFilePath + " does not exist."
-    exit
-end
+OptionParser.new do |opts|
+    opts.banner = "Usage: rSyncMeNow.rb [options]"
+    opts.on("-s", "--subjects", "Subjects json file") do |s|
+        options[:subjectsFilePath] = s)
+    end
+    opts.on("-c", "--settings", "Settings json file") do |c|
+        options[:subjectsFilePath] = c)
+    end
+end.parse!
 
-subjects = JSON.parse(File.read(subjectsFilePath))
-settings = JSON.parse(File.read(settingsFilePath))
+subjects = JSON.parse(File.read(options[:subjectsFilePath]))
+settings = JSON.parse(File.read(options[:settingsFilePath]))
 
 # Check if Active Directory is around
 if not File.directory?(settings["SOURCE_PATH"]) then
