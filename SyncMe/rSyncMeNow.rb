@@ -1,45 +1,50 @@
+#! /usr/bin/ruby
+
 # Get your study documents automatically from active directory
-#
-# @author Marius Küng
-# @version 0.1 (2013-11-21)
+# @author Marius Küng and Livio Bieri
 
-# we are the cool kids so we need json here
 require 'json'
+require 'optparse'
+require 'require_relative'
 
-# either use the files given as 
-# parameter or use the default ones
-# if none are set as parameters
-subjectsFilePath = ARGV[0]
-settingsFilePath = ARGV[1]
-subjectsFilePath ||= File.join(File.dirname(__FILE__),'subjects.json')
-settingsFilePath ||= File.join(File.dirname(__FILE__),'settings.json')
+# make sure that keys which have not been 
+# set in the hash map return nil so we can use ||
+options = Hash.new(nil) 
 
-if not File.exists?(subjectsFilePath) then
-    puts subjectsFilePath + " does not exist."
+OptionParser.new do |opts|
+    opts.banner = 'Usage: rSyncMeNow.rb [optional parameters]'
+    opts.on('-s', '--subjects [OPT]', 'Absolute path to a subject file.') do |subjectUserPath|
+        options[:subjectsFilePath] = subjectUserPath
+    end
+    opts.on('-c', '--settings [OPT]', 'Absolute path to a setting file.') do |settingUserPath|
+        options[:settingsFilePath] = settingUserPath
+    end
+
+    # setting default files if necessary
+    options[:subjectsFilePath] = options[:subjectsFilePath] || './subjects.json'
+    options[:settingsFilePath] = options[:settingsFilePath] || './settings.json'
+
+end.parse!
+
+begin 
+    subjects = JSON.parse(File.read(options[:subjectsFilePath]))
+    settings = JSON.parse(File.read(options[:settingsFilePath]))
+rescue
+    puts 'Ooops! Error while parsing files. => Make sure specified files are valid. :-('
     exit
 end
 
-if not File.exists?(settingsFilePath) then
-    puts settingsFilePath + " does not exist."
-    exit
-end
-
-subjects = JSON.parse(File.read(subjectsFilePath))
-settings = JSON.parse(File.read(settingsFilePath))
-
-# Check if Active Directory is around
 if not File.directory?(settings["SOURCE_PATH"]) then
-    puts "No connection found to active directory. Hell no!"
+    puts 'Ooops. Connection was not found to active directory. => Connect active directory first. :-('
     exit
 end
 
 subjects["subjects"].each do |subject|
 
     subjectMirrorFolder = "%s/%s/%s/" % [settings["USER_PATH"], subject['name'], settings["MIRROR_PATH"]]
-
     puts " => %s [%s]" % [subject["name"], subjectMirrorFolder]
 
-    # if target directory doesn't exitst
+    # if target directory doesn't exist create it
     if !File.directory?(File.expand_path(subjectMirrorFolder)) then
         system("mkdir -p %s" % subjectMirrorFolder)
     end
@@ -56,6 +61,5 @@ subjects["subjects"].each do |subject|
         subject['name'],
         settings["MIRROR_PATH"]
     ]
-    system( rsync ) # run a shell command: system ("<command>")
+    system( rsync )
 end
-
