@@ -19,10 +19,10 @@ options = {
 
 OptionParser.new do |opts|
     opts.banner = "Usage: rSyncMeNow.rb [options]"
-    opts.on("-s", "--subjects", "Subjects json file") do |s|
+    opts.on("-s", "--subjects", "Absolute path to a subject file in json format") do |s|
         options[:subjectsFilePath] = s
     end
-    opts.on("-c", "--settings", "Settings json file") do |c|
+    opts.on("-c", "--settings", "Absolute path to a setting file in json format") do |c|
         options[:subjectsFilePath] = c
     end
 end.parse!
@@ -33,13 +33,13 @@ begin
 rescue
     puts " => Ooops. Error while parsing files. :-/ \n" +
          "    Verify your subjects and settings file. \n" +
-         "    Make sure they are existing and valid. Aborting."
+         "    Make sure they are existing and valid. Aborting now. :-("
     exit
 end
 
 # Check if Active Directory is around
 if not File.directory?(settings["SOURCE_PATH"]) then
-    puts "No connection found to active directory. Hell no!"
+    puts "Connection was not found to active directory. Hell no! Aborting now. :-("
     exit
 end
 
