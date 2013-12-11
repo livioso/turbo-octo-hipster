@@ -376,6 +376,12 @@
                         <action selector="connectAD:" target="494" id="AH7-af-z7s"/>
                     </connections>
                 </menuItem>
+                <menuItem title="AD syncen" id="o0p-rN-3Ps">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="syncAD:" target="494" id="dCD-zA-OK3"/>
+                    </connections>
+                </menuItem>
                 <menuItem isSeparatorItem="YES" id="pbh-gn-dd8"/>
                 <menuItem title="Beenden" id="tZ6-Av-1p9">
                     <modifierMask key="keyEquivalentModifierMask"/>
