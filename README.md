@@ -15,8 +15,7 @@ Requirements:
 	# the following gems are required in order to use rSyncMeNow.rb
 	$ gem install json
 	$ gem install require_relative
-	$ gem install optparse
-
+	
 Usage:
 
 	# Every day usage is simple => Sync all my subjects
