@@ -1,9 +1,10 @@
-# @author Marius Küng
-# @version 0.1 (2013-11-22)
+# @author Marius Küng and Livio Bieri
 # open smb://fsemu18.edu.ds.fhnw.ch/e_18_data11\$/
 
-load(File.join(File.dirname(__FILE__),'rCheckWifi.rb'))
-load(File.join(File.dirname(__FILE__),'rVPNMeNow.rb'))
+require 'require_relative'
+
+load('./rCheckWifi.rb')
+load('./rVPNMeNow.rb')
 
 if !File.directory?("/Volumes/e_18_data11$") then
     if(!getFHNWWifi)
