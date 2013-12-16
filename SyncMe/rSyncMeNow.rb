@@ -7,6 +7,12 @@ require 'json'
 require 'optparse'
 require 'require_relative'
 
+if __FILE__ == $0
+  x = SubjectsSyncer.new(ARGV)
+  x.sync # or go, or whatever
+end
+
+
 # make sure that keys which have not been 
 # set in the hash map return nil so we can use ||
 options = Hash.new(nil) 
