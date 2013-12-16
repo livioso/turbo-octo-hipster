@@ -13,6 +13,7 @@ options = Hash.new(nil)
 
 OptionParser.new do |opts|
     opts.banner = 'Usage: rSyncMeNow.rb [optional parameters]'
+
     opts.on('-s', '--subjects [OPT]', 'Absolute path to a subject file.') do |subjectUserPath|
         options[:subjectsFilePath] = subjectUserPath
     end
@@ -61,5 +62,5 @@ subjects["subjects"].each do |subject|
         subject['name'],
         settings["MIRROR_PATH"]
     ]
-    system( rsync )
+    system(rsync)
 end
