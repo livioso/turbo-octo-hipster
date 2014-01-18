@@ -1,0 +1,5 @@
+# Exclude files selectively (see also --exclude-from for more information):
+
+# The very famous "Windows Thumbnail Cache". 
+# Awesome stuff but I don't want this. Go away!
+Thumbs.db
