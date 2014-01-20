@@ -1,6 +1,8 @@
 turbo-octo-hipster
 ==================
 
+[![Flattr this git repo](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=livioso&url=https://github.com/livioso/turbo-octo-hipster&title=turbo-otco-hipster&language=&tags=github&category=software) 
+
 Fancy scripts to improve life of a college student. ;)
 Contains scripts which should help to make life simpler...
 
