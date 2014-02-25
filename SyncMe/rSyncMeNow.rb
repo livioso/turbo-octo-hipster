@@ -42,8 +42,7 @@ end
 
 subjects["subjects"].each do |subject|
 
-    subjectMirrorFolder = "%s/%s/%s/" % [settings["USER_PATH"], subject['name'], settings["MIRROR_PATH"]]
-    # puts " => %s [%s]" % [subject["name"], subjectMirrorFolder]
+    subjectMirrorFolder = "%s/%s%s/%s/" % [settings["USER_PATH"], subject['prefix'], subject['name'], settings["MIRROR_PATH"]]
 
     # if target directory doesn't exist create it
     if !File.directory?(File.expand_path(subjectMirrorFolder)) then
@@ -52,13 +51,14 @@ subjects["subjects"].each do |subject|
 
     # how to build a path:
     # SOURCE_PATH/<directory of class>/<directory of subject>/* /USER_PATH/<subject>/MIRROR_PATH
-    rsync = "rsync %s %s%s/%s/* %s/%s/%s/" %
+    rsync = "rsync %s %s%s/%s/* %s/%s%s/%s/" %
     [
         settings["RSYNC_PARAMETER"],
         settings["SOURCE_PATH"],
         subject['directory'],
         subject['name'],
         settings["USER_PATH"],
+        subject['prefix'],
         subject['name'],
         settings["MIRROR_PATH"]
     ]
