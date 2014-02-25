@@ -2,5 +2,5 @@
 	"SOURCE_PATH": "/Volumes/e_18_data11$/",
 	"USER_PATH":"~/Desktop/FHNW",
 	"MIRROR_PATH":"__remotemirror",
-	"RSYNC_PARAMETER":"-arzhi --size-only --progress --exclude 'Thumbs.db'"
+	"RSYNC_PARAMETER":"--archive --compress --human-readable --itemize-changes --size-only --progress --exclude 'Thumbs.db'"
 }
