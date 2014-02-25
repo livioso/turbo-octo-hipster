@@ -43,6 +43,7 @@ end
 subjects["subjects"].each do |subject|
 
     subjectMirrorFolder = "%s/%s%s/%s/" % [settings["USER_PATH"], subject['prefix'], subject['name'], settings["MIRROR_PATH"]]
+    puts " => %s%s [%s]" % [subject['prefix'], subject["name"], subjectMirrorFolder]
 
     # if target directory doesn't exist create it
     if !File.directory?(File.expand_path(subjectMirrorFolder)) then
