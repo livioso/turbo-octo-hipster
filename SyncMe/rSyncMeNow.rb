@@ -30,8 +30,8 @@ end.parse!
 begin
     subjects = JSON.parse(File.read(options[:subjectsFilePath]))
     settings = JSON.parse(File.read(options[:settingsFilePath]))
-rescue
-    puts 'Ooops! Error while parsing files. => Make sure specified files are valid. :-('
+rescue => exception
+    puts "Ooops! Error while parsing files. => Detailed error description: \n" + exception.message 
     exit
 end
 
