@@ -21,9 +21,14 @@ OptionParser.new do |opts|
         options[:settingsFilePath] = settingUserPath
     end
 
+    opts.on('-v', '--vpn [OPT]', 'Connect to VPN before syncing.') do |settingUserPath|
+        options[:connectVPN] = true
+    end
+
     # setting default files if necessary
     options[:subjectsFilePath] = options[:subjectsFilePath] || File.join(File.dirname(__FILE__),'subjects.json')
     options[:settingsFilePath] = options[:settingsFilePath] || File.join(File.dirname(__FILE__),'settings.json')
+    options[:connectVPN] = options[:connectVPN] || false
 
 end.parse!
 
@@ -33,6 +38,12 @@ begin
 rescue => exception
     puts "Ooops! Error while parsing files. => Detailed error description: \n" + exception.message 
     exit
+end
+
+if options[:connectVPN] then
+    vpnConnectCommand = settings["VPN_CONNECTCOMMAND"]
+    puts settings["VPN_CONNECTCOMMAND"]
+    system(vpnConnectCommand)
 end
 
 if not File.directory?(settings["SOURCE_PATH"]) then
