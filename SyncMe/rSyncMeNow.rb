@@ -7,18 +7,13 @@ require 'json'
 require 'optparse'
 require 'require_relative'
 
-if __FILE__ == $0
-  x = SubjectsSyncer.new(ARGV)
-  x.sync # or go, or whatever
-end
-
-
-# make sure that keys which have not been 
+# make sure that keys which have not been
 # set in the hash map return nil so we can use ||
-options = Hash.new(nil) 
+options = Hash.new(nil)
 
 OptionParser.new do |opts|
     opts.banner = 'Usage: rSyncMeNow.rb [optional parameters]'
+
     opts.on('-s', '--subjects [OPT]', 'Absolute path to a subject file.') do |subjectUserPath|
         options[:subjectsFilePath] = subjectUserPath
     end
@@ -26,18 +21,29 @@ OptionParser.new do |opts|
         options[:settingsFilePath] = settingUserPath
     end
 
+    opts.on('-v', '--vpn [OPT]', 'Connect to VPN before syncing.') do |settingUserPath|
+        options[:connectVPN] = true
+    end
+
     # setting default files if necessary
-    options[:subjectsFilePath] = options[:subjectsFilePath] || './subjects.json'
-    options[:settingsFilePath] = options[:settingsFilePath] || './settings.json'
+    options[:subjectsFilePath] = options[:subjectsFilePath] || File.join(File.dirname(__FILE__),'subjects.json')
+    options[:settingsFilePath] = options[:settingsFilePath] || File.join(File.dirname(__FILE__),'settings.json')
+    options[:connectVPN] = options[:connectVPN] || false
 
 end.parse!
 
-begin 
+begin
     subjects = JSON.parse(File.read(options[:subjectsFilePath]))
     settings = JSON.parse(File.read(options[:settingsFilePath]))
-rescue
-    puts 'Ooops! Error while parsing files. => Make sure specified files are valid. :-('
+rescue => exception
+    puts "Ooops! Error while parsing files. => Detailed error description: \n" + exception.message 
     exit
+end
+
+if options[:connectVPN] then
+    vpnConnectCommand = settings["VPN_CONNECTCOMMAND"]
+    puts settings["VPN_CONNECTCOMMAND"]
+    system(vpnConnectCommand)
 end
 
 if not File.directory?(settings["SOURCE_PATH"]) then
@@ -47,8 +53,8 @@ end
 
 subjects["subjects"].each do |subject|
 
-    subjectMirrorFolder = "%s/%s/%s/" % [settings["USER_PATH"], subject['name'], settings["MIRROR_PATH"]]
-    puts " => %s [%s]" % [subject["name"], subjectMirrorFolder]
+    subjectMirrorFolder = "%s/%s%s/%s/" % [settings["USER_PATH"], subject['prefix'], subject['name'], settings["MIRROR_PATH"]]
+    puts " => %s%s [%s]" % [subject['prefix'], subject["name"], subjectMirrorFolder]
 
     # if target directory doesn't exist create it
     if !File.directory?(File.expand_path(subjectMirrorFolder)) then
@@ -57,15 +63,16 @@ subjects["subjects"].each do |subject|
 
     # how to build a path:
     # SOURCE_PATH/<directory of class>/<directory of subject>/* /USER_PATH/<subject>/MIRROR_PATH
-    rsync = "rsync %s %s/%s/%s/* %s/%s/%s/" %
+    rsync = "rsync %s %s%s/%s/* %s/%s%s/%s/" %
     [
         settings["RSYNC_PARAMETER"],
         settings["SOURCE_PATH"],
         subject['directory'],
         subject['name'],
         settings["USER_PATH"],
+        subject['prefix'],
         subject['name'],
         settings["MIRROR_PATH"]
     ]
-    system( rsync )
+    system(rsync)
 end

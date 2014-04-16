@@ -3,8 +3,8 @@
 
 require 'require_relative'
 
-load('./rCheckWifi.rb')
-load('./rVPNMeNow.rb')
+load(File.join(File.dirname(__FILE__),'rCheckWifi.rb'))
+load(File.join(File.dirname(__FILE__),'rVPNMeNow.rb'))
 
 if !File.directory?("/Volumes/e_18_data11$") then
     if(!getFHNWWifi)

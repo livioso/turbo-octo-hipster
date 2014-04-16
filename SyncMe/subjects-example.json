@@ -1,0 +1,14 @@
+{
+"subjects": [
+	{ "prefix":"1_Mo_" , "name":"oopI2" , "directory":"E1862_Unterrichte_I/E1862_2iCa"},
+	{ "prefix":"1_Mo_" , "name":"uidC" , "directory":"E1862_Unterrichte_I/E1862_2iCa" },
+	{ "prefix":"1_Mo_" , "name":"ws2C" , "directory":"E1862_Unterrichte_I/E1862_2iCb" },
+	{ "prefix":"2_Di_" , "name":"clabC" , "directory":"E1862_Unterrichte_I/E1862_2iCa" },
+	{ "prefix":"2_Di_" , "name":"req" , "directory":"E1862_Unterrichte_I/E1862_2iCa" },
+	{ "prefix":"2_Di_" , "name":"sprx" , "directory":"E1862_Unterrichte_I/E1862_2iCa" },
+	{ "prefix":"3_Mi_" , "name":"lag" , "directory":"E1862_Unterrichte_I/E1862_2iCbb" },
+	{ "prefix":"4_Do_" , "name":"infre", "directory":"E1868_Unterrichte_Kontext/E1868_8KGc"},
+	{ "prefix":"4_Do_" , "name":"ebec2", "directory":"E1868_Unterrichte_Kontext/E1868_8KEg" },
+	{ "prefix":"4_Do_" , "name":"mada" , "directory":"E1862_Unterrichte_I/E1862_2iCa" }
+]
+}
