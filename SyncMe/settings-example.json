@@ -1,8 +1,8 @@
 {
     "SOURCE_PATH": "/Volumes/e_18_data11$/",
-    // If you have a user path with whitespaces in it
-    // use \\\ (three backslashes) to escape each whitespace
     "USER_PATH":"~/Desktop/FHNW",
-    "MIRROR_PATH":"__remotemirror",
-    "RSYNC_PARAMETER":"--archive --compress --human-readable --itemize-changes --size-only --progress --exclude 'Thumbs.db'"
+    "USER_PATH_COMMENT":" ^ If you have a user path with whitespaces in it use three backslashes to escape each whitespace",
+    "MIRROR_PATH":"__remotecopy",
+    "RSYNC_PARAMETER":"--archive --compress --human-readable --itemize-changes --size-only --progress --exclude 'Thumbs.db'",
+    "VPN_CONNECTCOMMAND":"networksetup -connectpppoeservice 'FHNW VPN'"
 }
