@@ -5,7 +5,6 @@
 
 require 'json'
 require 'optparse'
-require 'require_relative'
 
 # make sure that keys which have not been
 # set in the hash map return nil so we can use ||
@@ -26,8 +25,8 @@ OptionParser.new do |opts|
     end
 
     # setting default files if necessary
-    options[:subjectsFilePath] = options[:subjectsFilePath] || File.join(File.dirname(__FILE__),'subjects.json')
-    options[:settingsFilePath] = options[:settingsFilePath] || File.join(File.dirname(__FILE__),'settings.json')
+    options[:subjectsFilePath] = options[:subjectsFilePath] || File.join(File.dirname(__FILE__), 'subjects.json')
+    options[:settingsFilePath] = options[:settingsFilePath] || File.join(File.dirname(__FILE__), 'settings.json')
     options[:connectVPN] = options[:connectVPN] || false
 
 end.parse!
@@ -40,13 +39,13 @@ rescue => exception
     exit
 end
 
-if options[:connectVPN] then
+if options[:connectVPN]
     vpnConnectCommand = settings["VPN_CONNECTCOMMAND"]
     puts settings["VPN_CONNECTCOMMAND"]
     system(vpnConnectCommand)
 end
 
-if not File.directory?(settings["SOURCE_PATH"]) then
+unless File.directory?(settings["SOURCE_PATH"])
     puts 'Ooops. Connection was not found to active directory. => Connect active directory first. :-('
     exit
 end
@@ -57,7 +56,7 @@ subjects["subjects"].each do |subject|
     puts " => %s%s [%s]" % [subject['prefix'], subject["name"], subjectMirrorFolder]
 
     # if target directory doesn't exist create it
-    if !File.directory?(File.expand_path(subjectMirrorFolder)) then
+    unless File.directory?(File.expand_path(subjectMirrorFolder))
         system("mkdir -p %s" % subjectMirrorFolder)
     end
 
