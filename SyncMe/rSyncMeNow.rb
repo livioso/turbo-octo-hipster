@@ -5,6 +5,7 @@
 
 require 'json'
 require 'optparse'
+require 'rsync'
 
 # make sure that keys which have not been
 # set in the hash map return nil so we can use ||
@@ -52,26 +53,35 @@ end
 
 subjects["subjects"].each do |subject|
 
-    subjectMirrorFolder = "%s/%s%s/%s/" % [settings["USER_PATH"], subject['prefix'], subject['name'], settings["MIRROR_PATH"]]
-    puts " => %s%s [%s]" % [subject['prefix'], subject["name"], subjectMirrorFolder]
+    sourcePath = "%s%s/%s/*" % [
+        settings["SOURCE_PATH"], 
+        subject['directory'], 
+        subject['name']
+    ]
 
-    # if target directory doesn't exist create it
-    unless File.directory?(File.expand_path(subjectMirrorFolder))
-        system("mkdir -p %s" % subjectMirrorFolder)
-    end
-
-    # how to build a path:
-    # SOURCE_PATH/<directory of class>/<directory of subject>/* /USER_PATH/<subject>/MIRROR_PATH
-    rsync = "rsync %s %s%s/%s/* %s/%s%s/%s/" %
-    [
-        settings["RSYNC_PARAMETER"],
-        settings["SOURCE_PATH"],
-        subject['directory'],
-        subject['name'],
-        settings["USER_PATH"],
-        subject['prefix'],
-        subject['name'],
+    destinationPath = "%s/%s%s/%s/" % [
+        settings["USER_PATH"], 
+        subject['prefix'], 
+        subject['name'], 
         settings["MIRROR_PATH"]
     ]
-    system(rsync)
+
+    rsyncParams = settings["RSYNC_PARAMETER"]
+
+    # if target directory doesn't exist create it
+    unless File.directory?(File.expand_path(destinationPath))
+        system("mkdir -p %s" % destinationPath)
+    end
+
+    puts " => %s%s [%s]" % [subject['prefix'], subject["name"], destinationPath]
+
+    Rsync.run(sourcePath, destinationPath, rsyncParams) do |result|
+     if result.success?
+        result.changes.each do |change|
+          puts " ---> #{change.filename} (#{change.summary})"
+        end
+      else
+        puts " ---> #{result.error}"
+      end
+    end
 end
