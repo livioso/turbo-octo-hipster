@@ -7,6 +7,11 @@ require 'json'
 require 'optparse'
 require 'rsync'
 
+# by default UTF_8 is used but this causes problems 
+# with umlauts in file and folder names (in rsync gem)
+Encoding.default_internal = Encoding::ISO_8859_1
+Encoding.default_external = Encoding::ISO_8859_1
+
 # make sure that keys which have not been
 # set in the hash map return nil so we can use ||
 options = Hash.new(nil)
@@ -78,7 +83,6 @@ subjects["subjects"].each do |subject|
     Rsync.run(sourcePath, destinationPath, rsyncParams) do |result|
      if result.success?
         result.changes.each do |change|
-          puts " ---> #{change.filename} (#{change.summary})"
         end
       else
         puts " ---> #{result.error}"
