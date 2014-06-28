@@ -10,19 +10,35 @@ import Foundation
 
 protocol SubjectProtocol {
     
-    var abbreviation: String {set get}
-    var directory: String {set get}
+    var directory: String {get}
+    var abbreviation: String {get}
+    var fullpath: String {get}
     
-    init(abbreviation: String, directory: String)
+    init(directory: String, abbreviation: String)
 }
 
 class Subject: SubjectProtocol {
     
-    var abbreviation: String
     var directory: String
+    var abbreviation: String
     
-    init(abbreviation: String, directory: String) {
+    // represents the full path which is 
+    // directory + / + abbreviation
+    var fullpath: String = ""
+    
+    init(directory: String, abbreviation: String) {
+        
         self.abbreviation = abbreviation
-        self.directory = directory
+        
+        if !directory.hasSuffix("/") {
+            self.directory = directory + "/"
+        } else {
+            self.directory = directory
+        }
+        
+        // now build the full path. please not that 
+        // the diretory may have been modified so we just 
+        // use the class' property instead of the parameters
+        self.fullpath = self.directory + self.abbreviation
     }
 }

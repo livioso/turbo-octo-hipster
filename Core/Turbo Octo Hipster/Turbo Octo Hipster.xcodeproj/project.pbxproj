@@ -14,6 +14,7 @@
 		BA792053195AC06100C88774 /* Turbo_Octo_HipsterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA792052195AC06100C88774 /* Turbo_Octo_HipsterTests.swift */; };
 		BA79205D195AC36F00C88774 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA79205C195AC36F00C88774 /* Subject.swift */; };
 		BA79205F195AC64A00C88774 /* SubjectTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA79205E195AC64A00C88774 /* SubjectTest.swift */; };
+		BAA328C2195EFDA800F48977 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA328C1195EFDA800F48977 /* Settings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		BA792052195AC06100C88774 /* Turbo_Octo_HipsterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Turbo_Octo_HipsterTests.swift; sourceTree = "<group>"; };
 		BA79205C195AC36F00C88774 /* Subject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Subject.swift; path = ../Subject.swift; sourceTree = "<group>"; };
 		BA79205E195AC64A00C88774 /* SubjectTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectTest.swift; sourceTree = "<group>"; };
+		BAA328C1195EFDA800F48977 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Settings.swift; path = ../Settings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 		BA79203C195AC06100C88774 /* Turbo Octo Hipster */ = {
 			isa = PBXGroup;
 			children = (
+				BAA328C1195EFDA800F48977 /* Settings.swift */,
 				BA79205C195AC36F00C88774 /* Subject.swift */,
 				BA792041195AC06100C88774 /* AppDelegate.swift */,
 				BA792043195AC06100C88774 /* Images.xcassets */,
@@ -216,6 +219,7 @@
 			files = (
 				BA79205D195AC36F00C88774 /* Subject.swift in Sources */,
 				BA792042195AC06100C88774 /* AppDelegate.swift in Sources */,
+				BAA328C2195EFDA800F48977 /* Settings.swift in Sources */,
 				BA792040195AC06100C88774 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -20,11 +20,20 @@ class SubjectTest: XCTestCase {
     override func tearDown() {
         super.tearDown()
     }
-
-    func testInit() {
-        objectUnderTest = Subject(abbreviation: "mada", directory: "~/Desktop/")
+    
+    func testInitWithoutTrailingSlash() {
+        objectUnderTest = Subject(directory: "~/Desktop", abbreviation: "mada")
         
         XCTAssertEqual(objectUnderTest.abbreviation, "mada")
         XCTAssertEqual(objectUnderTest.directory, "~/Desktop/")
+        XCTAssertEqual(objectUnderTest.fullpath, "~/Desktop/mada")
+    }
+
+    func testInitWithTrailingSlash() {
+        objectUnderTest = Subject(directory: "~/Desktop/", abbreviation: "mada")
+        
+        XCTAssertEqual(objectUnderTest.abbreviation, "mada")
+        XCTAssertEqual(objectUnderTest.directory, "~/Desktop/")
+        XCTAssertEqual(objectUnderTest.fullpath, "~/Desktop/mada")
     }
 }
