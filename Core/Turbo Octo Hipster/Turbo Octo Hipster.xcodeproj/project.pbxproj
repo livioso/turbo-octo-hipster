@@ -407,6 +407,7 @@
 				BA792058195AC06100C88774 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BA792059195AC06100C88774 /* Build configuration list for PBXNativeTarget "Turbo Octo HipsterTests" */ = {
 			isa = XCConfigurationList;
@@ -415,6 +416,7 @@
 				BA79205B195AC06100C88774 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
