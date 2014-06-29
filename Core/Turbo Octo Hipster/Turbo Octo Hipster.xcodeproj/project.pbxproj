@@ -11,10 +11,12 @@
 		BA792042195AC06100C88774 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA792041195AC06100C88774 /* AppDelegate.swift */; };
 		BA792044195AC06100C88774 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA792043195AC06100C88774 /* Images.xcassets */; };
 		BA792047195AC06100C88774 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA792045195AC06100C88774 /* MainMenu.xib */; };
-		BA792053195AC06100C88774 /* Turbo_Octo_HipsterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA792052195AC06100C88774 /* Turbo_Octo_HipsterTests.swift */; };
 		BA79205D195AC36F00C88774 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA79205C195AC36F00C88774 /* Subject.swift */; };
 		BA79205F195AC64A00C88774 /* SubjectTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA79205E195AC64A00C88774 /* SubjectTest.swift */; };
 		BAA328C2195EFDA800F48977 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA328C1195EFDA800F48977 /* Settings.swift */; };
+		BAA328C4195F074200F48977 /* SettingsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA328C3195F074200F48977 /* SettingsTest.swift */; };
+		BAA328C6195F0C7D00F48977 /* SubjectsReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA328C5195F0C7D00F48977 /* SubjectsReader.swift */; };
+		BAA328C8195F0CD500F48977 /* SubjectsReaderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA328C7195F0CD500F48977 /* SubjectsReaderTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,10 +38,12 @@
 		BA792046195AC06100C88774 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		BA79204C195AC06100C88774 /* Turbo Octo HipsterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Turbo Octo HipsterTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA792051195AC06100C88774 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BA792052195AC06100C88774 /* Turbo_Octo_HipsterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Turbo_Octo_HipsterTests.swift; sourceTree = "<group>"; };
 		BA79205C195AC36F00C88774 /* Subject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Subject.swift; path = ../Subject.swift; sourceTree = "<group>"; };
 		BA79205E195AC64A00C88774 /* SubjectTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectTest.swift; sourceTree = "<group>"; };
 		BAA328C1195EFDA800F48977 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Settings.swift; path = ../Settings.swift; sourceTree = "<group>"; };
+		BAA328C3195F074200F48977 /* SettingsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsTest.swift; path = ../SettingsTest.swift; sourceTree = "<group>"; };
+		BAA328C5195F0C7D00F48977 /* SubjectsReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectsReader.swift; sourceTree = "<group>"; };
+		BAA328C7195F0CD500F48977 /* SubjectsReaderTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubjectsReaderTest.swift; path = "../Turbo Octo Hipster/SubjectsReaderTest.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +88,7 @@
 				BAA328C1195EFDA800F48977 /* Settings.swift */,
 				BA79205C195AC36F00C88774 /* Subject.swift */,
 				BA792041195AC06100C88774 /* AppDelegate.swift */,
+				BAA328C5195F0C7D00F48977 /* SubjectsReader.swift */,
 				BA792043195AC06100C88774 /* Images.xcassets */,
 				BA792045195AC06100C88774 /* MainMenu.xib */,
 				BA79203D195AC06100C88774 /* Supporting Files */,
@@ -103,8 +108,9 @@
 		BA79204F195AC06100C88774 /* Turbo Octo HipsterTests */ = {
 			isa = PBXGroup;
 			children = (
+				BAA328C7195F0CD500F48977 /* SubjectsReaderTest.swift */,
+				BAA328C3195F074200F48977 /* SettingsTest.swift */,
 				BA79205E195AC64A00C88774 /* SubjectTest.swift */,
-				BA792052195AC06100C88774 /* Turbo_Octo_HipsterTests.swift */,
 				BA792050195AC06100C88774 /* Supporting Files */,
 			);
 			path = "Turbo Octo HipsterTests";
@@ -221,6 +227,7 @@
 				BA792042195AC06100C88774 /* AppDelegate.swift in Sources */,
 				BAA328C2195EFDA800F48977 /* Settings.swift in Sources */,
 				BA792040195AC06100C88774 /* main.swift in Sources */,
+				BAA328C6195F0C7D00F48977 /* SubjectsReader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,8 +235,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAA328C8195F0CD500F48977 /* SubjectsReaderTest.swift in Sources */,
 				BA79205F195AC64A00C88774 /* SubjectTest.swift in Sources */,
-				BA792053195AC06100C88774 /* Turbo_Octo_HipsterTests.swift in Sources */,
+				BAA328C4195F074200F48977 /* SettingsTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,15 +1,16 @@
 //
-//  Turbo_Octo_HipsterTests.swift
-//  Turbo Octo HipsterTests
+//  SubjectsReaderTest.swift
+//  Turbo Octo Hipster
 //
-//  Created by Livio Bieri on 25/06/14.
+//  Created by Livio Bieri on 28/06/14.
 //  Copyright (c) 2014 Livio Bieri. All rights reserved.
 //
 
 import XCTest
+import Turbo_Octo_Hipster
 
-class Turbo_Octo_HipsterTests: XCTestCase {
-    
+class SubjectsReaderTest: XCTestCase {
+
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -19,17 +20,21 @@ class Turbo_Octo_HipsterTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
-    
+
     func testExample() {
         // This is an example of a functional test case.
         XCTAssert(true, "Pass")
+        
+        var objectUnderTest: SubjectsReader = SubjectsReader()
+        objectUnderTest.buildSubjectsDictionary(fromThisFile: "")
+        
     }
-    
+
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measureBlock() {
             // Put the code you want to measure the time of here.
         }
     }
-    
+
 }

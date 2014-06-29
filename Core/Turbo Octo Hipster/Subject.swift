@@ -37,7 +37,7 @@ class Subject: SubjectProtocol {
         }
         
         // now build the full path. please not that 
-        // the diretory may have been modified so we just 
+        // the diretory may have been modified so we just
         // use the class' property instead of the parameters
         self.fullpath = self.directory + self.abbreviation
     }

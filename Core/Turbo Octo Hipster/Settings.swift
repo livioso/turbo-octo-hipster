@@ -12,6 +12,6 @@ protocol SettingsProtocol {
     
 }
 
-struct Settings: SettingsProtocol {
+class Settings: SettingsProtocol {
     
 }
